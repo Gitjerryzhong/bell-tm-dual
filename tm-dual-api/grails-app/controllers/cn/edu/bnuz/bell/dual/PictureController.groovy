@@ -42,6 +42,10 @@ class PictureController {
             userId = securityService.userId
         }
         def picturePath = "${filesPath}/${awardId}/${userId}"
+        if (fileName == 'template') {
+            picturePath = filesPath
+            fileName = 'templatePhoto.jpg'
+        }
         File file = new File(picturePath, fileName)
         output(file, false)
     }
